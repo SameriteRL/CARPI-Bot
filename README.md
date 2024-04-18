@@ -15,6 +15,7 @@ Once CARPI Bot is in your server, all of its commands are at your disposal! Use 
 
 ## Getting started with contributing
 ### Project Dependencies
+
 **Python (3.9+)**
 > [Download Python](https://www.python.org "Click to redirect!")
 
@@ -59,4 +60,5 @@ Anthony Smith   '27 \
 Julian Rosario  '26 \
 Ryan So         '26 \
 Florence Wang   '26 \
-Edwin Zhao      '26
+Edwin Zhao      '26 \
+Jack Zgombic    '26

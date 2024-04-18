@@ -43,6 +43,9 @@ OWNER_IDS = {
     455125448884748308, # Jack
 }
 
+# Base directory to search for relative paths from
+BASE_DIR = Path(__file__).parent
+
 try:
     with Path(__file__).with_name("config.json").open() as infile:
         CONFIG = json.load(infile)

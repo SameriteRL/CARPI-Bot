@@ -8,7 +8,7 @@ from bot import CARPIBot
 from globals import ERROR_TITLE, NO_PERM_MSG, send_generic_error
 
 
-class OwnerCommands(commands.Cog):
+class DeveloperFunctions(commands.Cog):
     def __init__(self, bot: CARPIBot):
         self.bot = bot
 
@@ -111,4 +111,4 @@ class OwnerCommands(commands.Cog):
         await message.edit(embed=embed_var)
 
 async def setup(bot: commands.Bot) -> None:
-    await bot.add_cog(OwnerCommands(bot))
+    await bot.add_cog(DeveloperFunctions(bot))

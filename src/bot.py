@@ -78,6 +78,35 @@ class CARPIBot(commands.Bot):
         Terminates all connections in the MySQL database connection
         pool, and closes the bot's connection to Discord.
         """
+        logging.info("Closing bot...")
+        if self.sql_conn_pool is not None:
+            self.sql_conn_pool.close()
+            self.sql_conn_pool.terminate()
+            await self.sql_conn_pool.wait_closed()
+        try:
+            await super().close()
+        except asyncio.CancelledError:
+            await self.http.close()
+    
+    async def on_command_error(self, ctx: Context, error: CommandError) -> None:
+        """
+        Overridden function.
+
+        This is called every time any command raises an error,
+        regardless of whether the command has a local error handler.
+        
+        Overriding this function allows us to suppress frequent, noisy
+        "unknown command" errors.
+        """
+        pass
+
+    async def close(self) -> None:
+        """
+        Overriden function.
+
+        Terminates all connections in the MySQL database connection
+        pool, and closes the bot's connection to Discord.
+        """
         logging.info("Closing bot")
         if self.sql_conn_pool is not None:
             self.sql_conn_pool.close()
